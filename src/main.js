@@ -9,6 +9,15 @@ import VueAxios from 'vue-axios'
 //导入全局样式表
 import './assets/css/global.css'
 import './assets/iconfont/iconfont.css'
+//配置请求的根路径
+// axios.defaults.baseURL = 'https://www.liulongbin.top:8888/api/private/v1/'
+axios.interceptors.request.use(config => {
+  console.log(config)
+  config.headers.Autorization = window.sessionStorage.getItem('token')
+  //在最后必须return config
+  return config
+})
+
 
 Vue.use(ElementUI)
 Vue.use(VueAxios, axios)

@@ -22,8 +22,8 @@ module.exports = {
 
       '/api': {
 
-        // target: 'https://www.liulongbin.top:8888/api/private/v1/', //外部服务器的地址
-        target: 'http://127.0.0.1:8089/study-boot', //自己的服务器的地址
+        target: 'https://www.liulongbin.top:8888/api/private/v1/', //外部服务器的地址
+        // target: 'http://127.0.0.1:8089/study-boot', //自己的服务器的地址
 
         changeOrigin: true,
 
