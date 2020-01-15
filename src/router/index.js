@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Welcome from '../components/Welcome'
+import Users from '../components/User/Users'
 
 Vue.use(VueRouter)
 
@@ -16,7 +18,12 @@ const routes = [
   {
     path: '/home',
     name: 'home',
-    component: () => import('../views/Home.vue')
+    component: () => import('../views/Home.vue'),
+    redirect:'/welcome',
+    children: [
+      { path: '/welcome', component: Welcome },
+      { path: '/users', component: Users },
+    ]
   }
 ]
 
@@ -31,7 +38,7 @@ router.beforeEach((to, from, next) => {
   //next 是一个函数，表示放行
   //next()放行 next('/login') 强制跳转
   // if (to.path === '/home') return next('/login');
-  if (to.path === '/login') return next();
+  if (to.path === '/login') return next()
   // const tokenStr = window.sessionStorage.getItem('token')
   // if(!tokenStr) return next('/login')
   next()
